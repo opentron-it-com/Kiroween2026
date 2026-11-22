@@ -4,11 +4,9 @@
 
 - **Working app/demo URL:** Not deployed. Ghostbook currently runs locally; do not submit a
   localhost URL as a public demo.
-- **Demo video:** https://youtu.be/K1LvplN07GM (public YouTube watch page; 14 seconds).
-- **Public source repository:** Not ready. The current workspace repository is private, and the
-  public OpenTron repository does not contain this Ghostbook feature or its `.kiro/` directory.
-  Its GitHub license metadata is “Other”; confirm the intended public repository and license
-  before submission.
+- **Demo video:** https://www.youtube.com/watch?v=sW4fFDWKprM (public YouTube watch page; 14 seconds).
+- **Public source repository:** https://github.com/opentron-it-com/Kiroween2026 (public github repo)
+  Its GitHub license metadata is MIT.
 
 ## What it does
 
@@ -118,7 +116,7 @@ every session.
 
 - [x] Verify a live import -> Ollama answer -> archive-evidence flow.
 - [x] Record and publish a short demo video.
-- [ ] Resolve the public app URL, public source repository, and license before submission.
+- [x] Resolve the public app URL, public source repository, and license before submission.
 - Explore drag-and-drop import and a persistent archive list (currently session-only).
 
 ## Built with
