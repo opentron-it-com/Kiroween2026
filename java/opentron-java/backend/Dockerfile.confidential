@@ -1,0 +1,150 @@
+# =========================================================================
+# Stage 1: Validate immutable model artifacts before the expensive native build
+# =========================================================================
+FROM debian:bookworm-slim@sha256:7ff6ba31527b9e336162fa061746c366c4b2032f4d2cff2078bea43f78efe3f8 AS model-validation
+
+ARG CJAE_ONNX_PII_MODEL_SHA256=963039b81eec5b33e23d84826ccdf1e8f8ada776f320e692113034cfae384617
+
+WORKDIR /opt/cjae/models
+COPY deploy/models/pii_ner_v1.onnx ./pii_ner_v1.onnx
+COPY deploy/models/vocab.txt ./vocab.txt
+COPY deploy/models/special_tokens_map.json ./special_tokens_map.json
+
+RUN if head -c 64 pii_ner_v1.onnx | grep -aiEq '<!doctype[[:space:]]+html|<html'; then \
+        echo "The configured model file is HTML, not an ONNX artifact." >&2; \
+        exit 1; \
+    fi \
+    && printf '%s  %s\n' "$CJAE_ONNX_PII_MODEL_SHA256" pii_ner_v1.onnx | sha256sum --check
+RUN chmod 0444 /opt/cjae/models/*
+
+# =========================================================================
+# Stage 2: Fetch the checksum-pinned GCP vTPM attestation utility
+# =========================================================================
+FROM debian:bookworm-slim@sha256:7ff6ba31527b9e336162fa061746c366c4b2032f4d2cff2078bea43f78efe3f8 AS gotpm
+
+ARG GOTPM_VERSION=v0.4.11
+ARG GOTPM_LINUX_AMD64_SHA256=050e189bd17b7198d68c3586670cb479aaa26181dd590786ba700ba3bdcb7d9e
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl --fail --silent --show-error --location \
+        "https://github.com/google/go-tpm-tools/releases/download/${GOTPM_VERSION}/go-tpm-tools_Linux_x86_64.tar.gz" \
+        --output /tmp/go-tpm-tools.tar.gz \
+    && echo "${GOTPM_LINUX_AMD64_SHA256}  /tmp/go-tpm-tools.tar.gz" | sha256sum --check \
+    && tar -xzf /tmp/go-tpm-tools.tar.gz -C /usr/local/bin gotpm \
+    && chmod 0555 /usr/local/bin/gotpm \
+    && rm /tmp/go-tpm-tools.tar.gz
+
+# =========================================================================
+# Stage 3: Build only the standalone confidential-worker module
+# =========================================================================
+FROM ghcr.io/graalvm/native-image-community:21@sha256:faed0fd6809b138254bdd6c7046e56894f4d9566ecbc7b0952aab43e65e16e0e AS builder
+
+# Install Maven for the worker-only build.
+RUN microdnf install -y maven
+
+WORKDIR /build/java/opentron-java/cjae-spring-boot-starter
+COPY java/opentron-java/cjae-spring-boot-starter/ ./
+RUN mvn -B -ntp clean install -DskipTests
+
+WORKDIR /build/java/opentron-java/confidential-worker
+COPY java/opentron-java/confidential-worker/ ./
+COPY java/opentron-java/backend/src/main/java/org/opentron/backend/security/confidential/ \
+    /build/java/opentron-java/backend/src/main/java/org/opentron/backend/security/confidential/
+
+# Build the isolated worker artifact without compiling the desktop/backend app.
+RUN mvn -B -ntp clean package -DskipTests
+RUN chmod 0444 target/cjae-confidential-worker.jar
+
+# Extract the pinned ONNX Runtime Linux libraries for JVM JNI loading.
+RUN mkdir -p /opt/cjae/lib /tmp/onnx-runtime \
+    && cd /tmp/onnx-runtime \
+    && jar xf /root/.m2/repository/com/microsoft/onnxruntime/onnxruntime/1.22.0/onnxruntime-1.22.0.jar \
+        ai/onnxruntime/native/linux-x64/libonnxruntime.so \
+        ai/onnxruntime/native/linux-x64/libonnxruntime4j_jni.so \
+    && cp ai/onnxruntime/native/linux-x64/libonnxruntime.so /opt/cjae/lib/ \
+    && cp ai/onnxruntime/native/linux-x64/libonnxruntime4j_jni.so /opt/cjae/lib/ \
+    && ln -s libonnxruntime.so /opt/cjae/lib/libonnxruntime.so.1 \
+    && chmod 0555 /opt/cjae/lib/*.so
+
+# =========================================================================
+# Stage 4: Java 21 JRE runtime with verified models
+# =========================================================================
+FROM eclipse-temurin:21-jre-jammy@sha256:affcab5356e1270ac35d2361ee83135af2f03e8d580eca78a6d5d6fdbf048db0
+
+ARG CJAE_ONNX_PII_MODEL_SHA256=963039b81eec5b33e23d84826ccdf1e8f8ada776f320e692113034cfae384617
+ARG SPRING_PROFILES_ACTIVE=gcp-cvm,onnx-pii
+ARG CONFIDENTIAL_GATEWAY_ENABLED=false
+ARG AWS_NITRO_KMS_KEY_ID
+ARG AWS_NITRO_CONTEXT_DEK_CIPHERTEXT_BASE64
+ARG AWS_NITRO_CONTEXT_KEY_ID
+ARG AWS_NITRO_TLS_KEYSTORE_CIPHERTEXT_BASE64
+ARG AWS_NITRO_VERIFY_ON_STARTUP=false
+ARG AWS_NITRO_DIAGNOSTICS_ENABLED=false
+ARG AWS_NITRO_HEALTH_VSOCK_ENABLED=false
+ARG AWS_NITRO_CONFIDENTIAL_BENCHMARK_ENABLED=false
+ARG AWS_NITRO_CONFIDENTIAL_BENCHMARK_SAMPLES=100
+ARG AWS_NITRO_CONFIDENTIAL_BENCHMARK_WARMUP=10
+ARG AWS_NITRO_RAG_BENCHMARK_ENABLED=false
+ARG CJAE_CONFIG_SIGNING_PUBLIC_KEY_BASE64
+
+WORKDIR /opt/cjae
+RUN mkdir -p /opt/cjae/models /opt/cjae/bin /opt/cjae/logs /opt/cjae/tpm
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends openssl python3 \
+    && rm -rf /var/lib/apt/lists/*
+RUN if [ -n "${CJAE_CONFIG_SIGNING_PUBLIC_KEY_BASE64}" ]; then \
+        printf '%s' "${CJAE_CONFIG_SIGNING_PUBLIC_KEY_BASE64}" \
+            | base64 --decode > /opt/cjae/config-signing-public.pem \
+        && openssl pkey -pubin -in /opt/cjae/config-signing-public.pem -noout \
+        && openssl rsa -pubin -in /opt/cjae/config-signing-public.pem -noout \
+        && openssl pkey -pubin -in /opt/cjae/config-signing-public.pem -text -noout \
+            | grep -Eq 'Public-Key: \((3072|[4-9][0-9]{3,}|[1-9][0-9]{4,}) bit\)' \
+        && chmod 0444 /opt/cjae/config-signing-public.pem; \
+    elif [ "${CONFIDENTIAL_GATEWAY_ENABLED}" = "true" ] \
+        && printf '%s' "${SPRING_PROFILES_ACTIVE}" | grep -q 'gcp-cvm'; then \
+        echo "A public runtime-config signing key is required for the GCP gateway image." >&2; \
+        exit 1; \
+    fi
+
+# Run the worker-only Spring Boot fat JAR on Java 21 with preview FFM enabled.
+COPY --from=builder /build/java/opentron-java/confidential-worker/target/cjae-confidential-worker.jar /opt/cjae/app.jar
+COPY java/opentron-java/confidential-worker/src/main/resources/benchmark/python_serialized_proxy.py \
+    /opt/cjae/bin/python_serialized_proxy.py
+COPY java/opentron-java/confidential-worker/src/main/docker/confidential_space_entrypoint.py \
+    /opt/cjae/bin/confidential_space_entrypoint.py
+COPY java/opentron-java/confidential-worker/src/main/docker/cjae_runtime_config.py \
+    /opt/cjae/bin/cjae_runtime_config.py
+RUN chmod 0555 /opt/cjae/bin/python_serialized_proxy.py \
+        /opt/cjae/bin/confidential_space_entrypoint.py \
+        /opt/cjae/bin/cjae_runtime_config.py
+
+# Copy Google's checksum-verified GCA/vTPM acquisition utility
+COPY --from=gotpm /usr/local/bin/gotpm /opt/cjae/bin/gotpm
+COPY --from=builder /opt/cjae/lib/ /opt/cjae/lib/
+
+# Copy the verified ONNX model and its tokenizer assets
+COPY --from=model-validation /opt/cjae/models/ /opt/cjae/models/
+
+ENV CJAE_ONNX_PII_MODEL_SHA256=${CJAE_ONNX_PII_MODEL_SHA256}
+ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+ENV CONFIDENTIAL_GATEWAY_ENABLED=${CONFIDENTIAL_GATEWAY_ENABLED}
+ENV AWS_NITRO_KMS_KEY_ID=${AWS_NITRO_KMS_KEY_ID}
+ENV AWS_NITRO_CONTEXT_DEK_CIPHERTEXT_BASE64=${AWS_NITRO_CONTEXT_DEK_CIPHERTEXT_BASE64}
+ENV AWS_NITRO_CONTEXT_KEY_ID=${AWS_NITRO_CONTEXT_KEY_ID}
+ENV AWS_NITRO_TLS_KEYSTORE_CIPHERTEXT_BASE64=${AWS_NITRO_TLS_KEYSTORE_CIPHERTEXT_BASE64}
+ENV AWS_NITRO_VERIFY_ON_STARTUP=${AWS_NITRO_VERIFY_ON_STARTUP}
+ENV AWS_NITRO_DIAGNOSTICS_ENABLED=${AWS_NITRO_DIAGNOSTICS_ENABLED}
+ENV AWS_NITRO_HEALTH_VSOCK_ENABLED=${AWS_NITRO_HEALTH_VSOCK_ENABLED}
+ENV AWS_NITRO_CONFIDENTIAL_BENCHMARK_ENABLED=${AWS_NITRO_CONFIDENTIAL_BENCHMARK_ENABLED}
+ENV AWS_NITRO_CONFIDENTIAL_BENCHMARK_SAMPLES=${AWS_NITRO_CONFIDENTIAL_BENCHMARK_SAMPLES}
+ENV AWS_NITRO_CONFIDENTIAL_BENCHMARK_WARMUP=${AWS_NITRO_CONFIDENTIAL_BENCHMARK_WARMUP}
+ENV AWS_NITRO_RAG_BENCHMARK_ENABLED=${AWS_NITRO_RAG_BENCHMARK_ENABLED}
+ENV LD_LIBRARY_PATH=/opt/cjae/lib
+ENV GCP_TPM_EVENT_LOG_PATH=/opt/cjae/tpm/event.log
+ENV JAVA_TOOL_OPTIONS="--enable-preview --enable-native-access=ALL-UNNAMED -Duser.home=/tmp -Djava.library.path=/opt/cjae/lib -Donnxruntime.native.path=/opt/cjae/lib"
+LABEL tee.launch_policy.allow_env_override="CJAE_RUNTIME_CONFIG_BASE64,CJAE_RUNTIME_CONFIG_SIGNATURE_BASE64"
+USER 65532:65532
+EXPOSE 8443
+ENTRYPOINT ["/usr/bin/python3", "/opt/cjae/bin/confidential_space_entrypoint.py"]

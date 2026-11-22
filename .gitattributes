@@ -1,0 +1,5 @@
+*.msi filter=lfs diff=lfs merge=lfs -text
+*.msix filter=lfs diff=lfs merge=lfs -text
+startup_script.sh text eol=lf
+deploy/gcp/confidential-space/*.sh text eol=lf
+java/opentron-java/confidential-worker/src/main/docker/*.py text eol=lf

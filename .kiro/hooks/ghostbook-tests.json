@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Run Ghostbook tests after feature edits",
+      "description": "Run the focused Ghostbook Vitest suite after Kiro edits feature files.",
+      "trigger": "PostFileSave",
+      "matcher": ".*[Gg]hostbook.*\\.(ts|tsx)$",
+      "action": {
+        "type": "command",
+        "command": "npm --prefix frontend test -- --passWithNoTests src/features/ghostbook"
+      },
+      "timeout": 120
+    }
+  ]
+}

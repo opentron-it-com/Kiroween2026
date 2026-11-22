@@ -1,0 +1,73 @@
+site_name: OpenTron
+site_url: https://opentron.it.com/
+site_description: Personal AI, On Personal Devices
+site_author: OpenTron Contributors
+repo_url: https://github.com/opentron-it-com/OpenTron
+repo_name: opentron-it-com/OpenTron
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2026 OpenTron Contributors
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  language: en
+  font:
+    text: Georgia
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - sitemap:
+      filename: sitemap.xml
+  - search:
+      separator: '[\s\-\._]+'
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+
+
+extra:
+  version:
+    default: v1.0.0
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/opentron-it-com/OpenTron

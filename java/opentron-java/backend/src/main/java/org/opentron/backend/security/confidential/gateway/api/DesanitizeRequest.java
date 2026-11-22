@@ -1,0 +1,13 @@
+package org.opentron.backend.security.confidential.gateway.api;
+
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+public record DesanitizeRequest(
+        @NotNull
+        @Size(max = 1_000_000)
+        String modelResponse,
+        @NotNull
+        @Size(min = 1, max = 2_000_000)
+        String secureContext) {
+}

@@ -1,0 +1,249 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R] /Count 6 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 1296 >>
+stream
+0.035 0.075 0.150 rg 0 0 960 540 re f
+0.100 0.790 0.720 rg 0 0 14 540 re f
+0.055 0.110 0.200 rg 650 0 310 540 re f
+BT /F2 12 Tf 0.100 0.790 0.720 rg 1 0 0 1 62 454 Tm (OPENTRON  /  CONFIDENTIAL JAVA AI ENGINE) Tj ET
+BT /F2 48 Tf 0.950 0.970 1.000 rg 1 0 0 1 62 365 Tm (Spring Boot) Tj ET
+BT /F2 39 Tf 0.950 0.970 1.000 rg 1 0 0 1 62 308 Tm (Starter + Client SDK) Tj ET
+BT /F1 18 Tf 0.680 0.750 0.850 rg 1 0 0 1 64 254 Tm (Runtime guard and typed policy-response client PoC) Tj ET
+0.100 0.790 0.720 RG 2 w 64 220 m 570 220 l S
+BT /F2 16 Tf 0.950 0.970 1.000 rg 1 0 0 1 64 178 Tm (Release 0.1.0) Tj ET
+BT /F1 14 Tf 0.680 0.750 0.850 rg 1 0 0 1 64 148 Tm (Executive presentation and verification summary) Tj ET
+BT /F1 11 Tf 0.680 0.750 0.850 rg 1 0 0 1 64 54 Tm (25 October 2026  |  Java 21  |  Spring Boot) Tj ET
+BT /F2 68 Tf 0.100 0.790 0.720 rg 1 0 0 1 688 373 Tm (50) Tj ET
+BT /F1 15 Tf 0.950 0.970 1.000 rg 1 0 0 1 692 337 Tm (focused tests passed) Tj ET
+BT /F2 39 Tf 0.100 0.790 0.720 rg 1 0 0 1 688 244 Tm (20 + 20) Tj ET
+BT /F1 13 Tf 0.950 0.970 1.000 rg 1 0 0 1 692 208 Tm (approved / rejected keyword cases) Tj ET
+BT /F2 15 Tf 1.000 0.720 0.320 rg 1 0 0 1 692 111 Tm (Test fixture only) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 692 84 Tm (Not a production keyword classifier) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 2226 >>
+stream
+0.035 0.075 0.150 rg 0 0 960 540 re f
+0.100 0.790 0.720 rg 0 0 12 540 re f
+BT /F2 11 Tf 0.100 0.790 0.720 rg 1 0 0 1 54 498 Tm (CJAE SPRING BOOT STARTER + CLIENT SDK | PoC 0.1.0) Tj ET
+BT /F2 30 Tf 0.950 0.970 1.000 rg 1 0 0 1 54 449 Tm (PoC scope: runtime guard + client contract) Tj ET
+0.160 0.250 0.370 RG 1 w 54 430 m 906 430 l S
+BT /F1 10 Tf 0.680 0.750 0.850 rg 1 0 0 1 54 26 Tm (OpenTron | 25 October 2026 | Focused software PoC) Tj ET
+BT /F2 10 Tf 0.100 0.790 0.720 rg 1 0 0 1 884 26 Tm (02) Tj ET
+0.075 0.130 0.230 rg 54 230 260 195 re f
+BT /F2 14 Tf 0.100 0.790 0.720 rg 1 0 0 1 74 385 Tm (01) Tj ET
+BT /F2 19 Tf 0.950 0.970 1.000 rg 1 0 0 1 74 349 Tm (Spring starter) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 74 310 Tm (@ConfidentialAI protects) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 74 288 Tm (synchronous Spring-proxied) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 74 266 Tm (methods after one verifier) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 74 244 Tm (succeeds.) Tj ET
+0.075 0.130 0.230 rg 350 230 260 195 re f
+BT /F2 14 Tf 0.100 0.790 0.720 rg 1 0 0 1 370 385 Tm (02) Tj ET
+BT /F2 19 Tf 0.950 0.970 1.000 rg 1 0 0 1 370 349 Tm (Client SDK) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 370 310 Tm (Typed sanitize / restore calls) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 370 288 Tm (support text and conversation) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 370 266 Tm (segments.) Tj ET
+0.075 0.130 0.230 rg 646 230 260 195 re f
+BT /F2 14 Tf 0.100 0.790 0.720 rg 1 0 0 1 666 385 Tm (03) Tj ET
+BT /F2 19 Tf 0.950 0.970 1.000 rg 1 0 0 1 666 349 Tm (Fail closed) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 666 310 Tm (Missing or duplicate verifier) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 666 288 Tm (blocks invocation; policy) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 666 266 Tm (errors surface as typed) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 666 244 Tm (responses.) Tj ET
+0.100 0.200 0.290 rg 54 127 852 58 re f
+BT /F2 13 Tf 0.100 0.790 0.720 rg 1 0 0 1 74 161 Tm (Scope boundary) Tj ET
+BT /F1 14 Tf 0.950 0.970 1.000 rg 1 0 0 1 74 139 Tm (In-process verification and client request/error handling; no transparent code relocation.) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 1633 >>
+stream
+0.035 0.075 0.150 rg 0 0 960 540 re f
+0.100 0.790 0.720 rg 0 0 12 540 re f
+BT /F2 11 Tf 0.100 0.790 0.720 rg 1 0 0 1 54 498 Tm (CJAE SPRING BOOT STARTER + CLIENT SDK | PoC 0.1.0) Tj ET
+BT /F2 30 Tf 0.950 0.970 1.000 rg 1 0 0 1 54 449 Tm (Developer flow and gateway response handling) Tj ET
+0.160 0.250 0.370 RG 1 w 54 430 m 906 430 l S
+BT /F1 10 Tf 0.680 0.750 0.850 rg 1 0 0 1 54 26 Tm (OpenTron | 25 October 2026 | Focused software PoC) Tj ET
+BT /F2 10 Tf 0.100 0.790 0.720 rg 1 0 0 1 884 26 Tm (03) Tj ET
+0.075 0.130 0.230 rg 54 155 500 260 re f
+BT /F2 16 Tf 0.100 0.790 0.720 rg 1 0 0 1 78 375 Tm (1  Add starter dependency) Tj ET
+BT /F1 15 Tf 0.950 0.970 1.000 rg 1 0 0 1 78 338 Tm (2  Annotate synchronous Spring service) Tj ET
+BT /F2 21 Tf 0.100 0.790 0.720 rg 1 0 0 1 78 305 Tm (@ConfidentialAI) Tj ET
+BT /F1 15 Tf 0.950 0.970 1.000 rg 1 0 0 1 78 265 Tm (3  Configure exactly one verifier bean) Tj ET
+BT /F1 14 Tf 0.950 0.970 1.000 rg 1 0 0 1 78 224 Tm (4  Client submits content over typed HTTP API) Tj ET
+BT /F1 14 Tf 0.950 0.970 1.000 rg 1 0 0 1 78 187 Tm (5  SDK returns typed success or safe error) Tj ET
+BT /F2 16 Tf 0.100 0.790 0.720 rg 1 0 0 1 608 375 Tm (Decision handling) Tj ET
+0.060 0.310 0.300 rg 608 300 282 52 re f
+BT /F2 15 Tf 0.950 0.970 1.000 rg 1 0 0 1 628 320 Tm (2xx  -> typed result) Tj ET
+0.300 0.120 0.140 rg 608 225 282 52 re f
+BT /F2 15 Tf 0.950 0.970 1.000 rg 1 0 0 1 628 245 Tm (422  -> typed rejection) Tj ET
+BT /F1 12 Tf 0.680 0.750 0.850 rg 1 0 0 1 608 177 Tm (Decision comes from the service,) Tj ET
+BT /F2 12 Tf 1.000 0.720 0.320 rg 1 0 0 1 608 157 Tm (not from an SDK keyword filter.) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 4216 >>
+stream
+0.035 0.075 0.150 rg 0 0 960 540 re f
+0.100 0.790 0.720 rg 0 0 12 540 re f
+BT /F2 11 Tf 0.100 0.790 0.720 rg 1 0 0 1 54 498 Tm (CJAE SPRING BOOT STARTER + CLIENT SDK | PoC 0.1.0) Tj ET
+BT /F2 30 Tf 0.950 0.970 1.000 rg 1 0 0 1 54 449 Tm (Keyword matrix: 20 approved + 20 rejected cases) Tj ET
+0.160 0.250 0.370 RG 1 w 54 430 m 906 430 l S
+BT /F1 10 Tf 0.680 0.750 0.850 rg 1 0 0 1 54 26 Tm (OpenTron | 25 October 2026 | Focused software PoC) Tj ET
+BT /F2 10 Tf 0.100 0.790 0.720 rg 1 0 0 1 884 26 Tm (04) Tj ET
+0.060 0.230 0.220 rg 54 98 411 310 re f
+0.270 0.120 0.140 rg 495 98 411 310 re f
+BT /F2 13 Tf 0.100 0.790 0.720 rg 1 0 0 1 72 380 Tm (APPROVED FIXTURE CASES) Tj ET
+BT /F2 13 Tf 1.000 0.400 0.380 rg 1 0 0 1 513 380 Tm (REJECTED FIXTURE CASES) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 353.0 Tm (01. weather) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 340.9 Tm (02. recipe) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 328.8 Tm (03. gardening) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 316.7 Tm (04. travel itinerary) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 304.6 Tm (05. book review) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 292.5 Tm (06. public schedule) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 280.4 Tm (07. meeting agenda) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 268.3 Tm (08. product description) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 256.2 Tm (09. general knowledge) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 244.10000000000002 Tm (10. tutorial) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 232.0 Tm (11. arithmetic) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 219.9 Tm (12. sports score) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 207.8 Tm (13. movie summary) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 195.70000000000002 Tm (14. language translation) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 183.6 Tm (15. documentation) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 171.5 Tm (16. public announcement) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 159.4 Tm (17. restaurant menu) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 147.3 Tm (18. historical fact) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 135.20000000000002 Tm (19. packing list) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 72 123.1 Tm (20. code example) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 353.0 Tm (01. password) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 340.9 Tm (02. passcode) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 328.8 Tm (03. secret key) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 316.7 Tm (04. api key) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 304.6 Tm (05. access token) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 292.5 Tm (06. private key) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 280.4 Tm (07. social security number) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 268.3 Tm (08. ssn) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 256.2 Tm (09. credit card) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 244.10000000000002 Tm (10. bank account) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 232.0 Tm (11. medical record) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 219.9 Tm (12. diagnosis) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 207.8 Tm (13. patient) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 195.70000000000002 Tm (14. date of birth) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 183.6 Tm (15. passport number) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 171.5 Tm (16. driver license) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 159.4 Tm (17. insurance policy) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 147.3 Tm (18. biometric) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 135.20000000000002 Tm (19. confidential) Tj ET
+BT /F1 9.5 Tf 0.950 0.970 1.000 rg 1 0 0 1 513 123.1 Tm (20. restricted) Tj ET
+BT /F2 12 Tf 1.000 0.720 0.320 rg 1 0 0 1 54 72 Tm (The local test server applies these fixture rules. The SDK itself does not classify keywords.) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 1661 >>
+stream
+0.035 0.075 0.150 rg 0 0 960 540 re f
+0.100 0.790 0.720 rg 0 0 12 540 re f
+BT /F2 11 Tf 0.100 0.790 0.720 rg 1 0 0 1 54 498 Tm (CJAE SPRING BOOT STARTER + CLIENT SDK | PoC 0.1.0) Tj ET
+BT /F2 30 Tf 0.950 0.970 1.000 rg 1 0 0 1 54 449 Tm (Verification evidence) Tj ET
+0.160 0.250 0.370 RG 1 w 54 430 m 906 430 l S
+BT /F1 10 Tf 0.680 0.750 0.850 rg 1 0 0 1 54 26 Tm (OpenTron | 25 October 2026 | Focused software PoC) Tj ET
+BT /F2 10 Tf 0.100 0.790 0.720 rg 1 0 0 1 884 26 Tm (05) Tj ET
+0.075 0.130 0.230 rg 54 286 260 125 re f
+BT /F2 45 Tf 0.100 0.790 0.720 rg 1 0 0 1 76 335 Tm (3) Tj ET
+BT /F2 16 Tf 0.950 0.970 1.000 rg 1 0 0 1 166 336 Tm (Starter) Tj ET
+BT /F1 11 Tf 0.680 0.750 0.850 rg 1 0 0 1 76 309 Tm (auto-config and guard tests) Tj ET
+0.075 0.130 0.230 rg 350 286 260 125 re f
+BT /F2 45 Tf 0.100 0.790 0.720 rg 1 0 0 1 372 335 Tm (47) Tj ET
+BT /F2 16 Tf 0.950 0.970 1.000 rg 1 0 0 1 462 336 Tm (Gateway client) Tj ET
+BT /F1 11 Tf 0.680 0.750 0.850 rg 1 0 0 1 372 309 Tm (existing 7 + 40 keyword cases) Tj ET
+0.075 0.130 0.230 rg 646 286 260 125 re f
+BT /F2 45 Tf 0.100 0.790 0.720 rg 1 0 0 1 668 335 Tm (50) Tj ET
+BT /F2 16 Tf 0.950 0.970 1.000 rg 1 0 0 1 758 336 Tm (Total) Tj ET
+BT /F1 11 Tf 0.680 0.750 0.850 rg 1 0 0 1 668 309 Tm (0 failures / 0 errors) Tj ET
+0.060 0.310 0.300 rg 54 182 852 54 re f
+BT /F2 15 Tf 0.950 0.970 1.000 rg 1 0 0 1 75 202 Tm (Both fresh Maven runs passed; Surefire XML and text reports are included.) Tj ET
+BT /F1 13 Tf 0.680 0.750 0.850 rg 1 0 0 1 54 135 Tm (Starter: clean verify) Tj ET
+BT /F1 13 Tf 0.680 0.750 0.850 rg 1 0 0 1 54 111 Tm (Client: clean test, including 20 approvals and 20 typed 422 rejections) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 1714 >>
+stream
+0.035 0.075 0.150 rg 0 0 960 540 re f
+0.100 0.790 0.720 rg 0 0 12 540 re f
+BT /F2 11 Tf 0.100 0.790 0.720 rg 1 0 0 1 54 498 Tm (CJAE SPRING BOOT STARTER + CLIENT SDK | PoC 0.1.0) Tj ET
+BT /F2 30 Tf 0.950 0.970 1.000 rg 1 0 0 1 54 449 Tm (Interpretation and next steps) Tj ET
+0.160 0.250 0.370 RG 1 w 54 430 m 906 430 l S
+BT /F1 10 Tf 0.680 0.750 0.850 rg 1 0 0 1 54 26 Tm (OpenTron | 25 October 2026 | Focused software PoC) Tj ET
+BT /F2 10 Tf 0.100 0.790 0.720 rg 1 0 0 1 884 26 Tm (06) Tj ET
+0.060 0.250 0.240 rg 54 170 410 240 re f
+BT /F2 14 Tf 0.100 0.790 0.720 rg 1 0 0 1 78 374 Tm (DEMONSTRATED) Tj ET
+BT /F1 13 Tf 0.950 0.970 1.000 rg 1 0 0 1 78 330 Tm (+  Spring proxy guard and fail-closed config) Tj ET
+BT /F1 13 Tf 0.950 0.970 1.000 rg 1 0 0 1 78 288 Tm (+  Typed SDK success and rejection responses) Tj ET
+BT /F1 13 Tf 0.950 0.970 1.000 rg 1 0 0 1 78 246 Tm (+  40 keyword examples through a local fixture) Tj ET
+0.250 0.150 0.090 rg 496 170 410 240 re f
+BT /F2 14 Tf 1.000 0.720 0.320 rg 1 0 0 1 520 374 Tm (NOT CLAIMED) Tj ET
+BT /F1 13 Tf 0.950 0.970 1.000 rg 1 0 0 1 520 330 Tm (-  Production content classification) Tj ET
+BT /F1 13 Tf 0.950 0.970 1.000 rg 1 0 0 1 520 288 Tm (-  Automatic host-to-isolated-runtime routing) Tj ET
+BT /F1 13 Tf 0.950 0.970 1.000 rg 1 0 0 1 520 246 Tm (-  Universal off-heap memory protection) Tj ET
+BT /F1 13 Tf 0.950 0.970 1.000 rg 1 0 0 1 520 204 Tm (-  Performance or security certification) Tj ET
+BT /F2 14 Tf 0.950 0.970 1.000 rg 1 0 0 1 54 116 Tm (Next: run the case matrix against the actual application policy service.) Tj ET
+BT /F2 13 Tf 1.000 0.720 0.320 rg 1 0 0 1 54 85 Tm (Conclusion: focused integration PoC; policy decisions remain server-owned.) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 960 540] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
+endobj
+xref
+0 17
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000155 00000 n 
+0000000225 00000 n 
+0000000300 00000 n 
+0000001647 00000 n 
+0000001783 00000 n 
+0000004060 00000 n 
+0000004196 00000 n 
+0000005880 00000 n 
+0000006017 00000 n 
+0000010285 00000 n 
+0000010423 00000 n 
+0000012136 00000 n 
+0000012274 00000 n 
+0000014040 00000 n 
+trailer
+<< /Size 17 /Root 1 0 R >>
+startxref
+14178
+%%EOF

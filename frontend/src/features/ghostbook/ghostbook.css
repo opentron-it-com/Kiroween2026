@@ -1,0 +1,635 @@
+.ghostbook-page {
+  --color-bg: #10101a;
+  --color-bg-secondary: #181827;
+  --color-bg-tertiary: #232338;
+  --color-surface: #171725;
+  --color-border: rgba(192, 174, 255, 0.16);
+  --color-text: #f0edf8;
+  --color-text-secondary: #b7b0c9;
+  --color-text-tertiary: #a8a2ba;
+  --color-accent: #c2a6ff;
+  --color-accent-subtle: rgba(194, 166, 255, 0.12);
+  --color-accent-glow: rgba(194, 166, 255, 0.28);
+  --color-accent-amber: #f3b86b;
+  --color-success: #79d8ae;
+  --color-error: #ff8e9b;
+  --color-user-bubble: rgba(194, 166, 255, 0.16);
+  --color-user-bubble-text: #f5f0ff;
+  --color-disabled-bg: #252438;
+  --color-input-bg: #12121f;
+  --color-input-border: rgba(192, 174, 255, 0.22);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: auto;
+  color: var(--color-text);
+  background:
+    radial-gradient(ellipse at 70% 0%, rgba(116, 77, 161, 0.18), transparent 42%),
+    radial-gradient(ellipse at 0% 100%, rgba(55, 96, 116, 0.1), transparent 45%),
+    #10101a;
+}
+
+.ghostbook-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 76px;
+  padding: 14px clamp(18px, 3vw, 42px);
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(14, 14, 23, 0.72);
+}
+
+.ghostbook-brand,
+.ghostbook-status,
+.ghostbook-section-heading,
+.ghostbook-chat-heading,
+.ghostbook-file-row,
+.ghostbook-privacy-note,
+.ghostbook-feedback {
+  display: flex;
+  align-items: center;
+}
+
+.ghostbook-brand {
+  gap: 12px;
+}
+
+.ghostbook-mark,
+.ghostbook-upload-icon {
+  display: grid;
+  place-items: center;
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
+.ghostbook-mark {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: 13px;
+  box-shadow: 0 0 28px rgba(194, 166, 255, 0.08);
+}
+
+.ghostbook-brand h1,
+.ghostbook-section-heading h2,
+.ghostbook-chat-heading h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.ghostbook-brand h1 {
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.ghostbook-eyebrow,
+.ghostbook-status,
+.ghostbook-list-heading,
+.ghostbook-file-size,
+.ghostbook-chat-indicator {
+  font-family: var(--font-hud);
+  letter-spacing: 0.1em;
+}
+
+.ghostbook-eyebrow {
+  margin-bottom: 4px;
+  color: var(--color-text-tertiary);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.ghostbook-status,
+.ghostbook-chat-indicator {
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: 10px;
+}
+
+.ghostbook-status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-success);
+  box-shadow: 0 0 10px rgba(121, 216, 174, 0.55);
+}
+
+.ghostbook-workspace {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.45fr);
+  gap: 16px;
+  width: min(1500px, 100%);
+  min-height: 0;
+  flex: 1;
+  margin: 0 auto;
+  padding: clamp(14px, 2.4vw, 30px);
+}
+
+.ghostbook-archive-panel,
+.ghostbook-chat-panel {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: rgba(20, 20, 32, 0.86);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.16);
+}
+
+.ghostbook-archive-panel {
+  align-self: start;
+  padding: 22px;
+}
+
+.ghostbook-section-heading,
+.ghostbook-chat-heading {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ghostbook-section-heading > svg {
+  color: var(--color-accent);
+}
+
+.ghostbook-section-heading h2,
+.ghostbook-chat-heading h2 {
+  font-size: 17px;
+}
+
+.ghostbook-intro {
+  margin: 12px 0 18px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.ghostbook-dropzone {
+  position: relative;
+  display: flex;
+  min-height: 132px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 18px;
+  border: 1px dashed rgba(194, 166, 255, 0.4);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(194, 166, 255, 0.07), rgba(38, 36, 57, 0.2));
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.ghostbook-dropzone:hover,
+.ghostbook-dropzone:focus-within {
+  border-color: var(--color-accent);
+  background: rgba(194, 166, 255, 0.1);
+}
+
+.ghostbook-dropzone:focus-within {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.ghostbook-dropzone input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.ghostbook-upload-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+
+.ghostbook-upload-title {
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ghostbook-upload-hint {
+  color: var(--color-text-tertiary);
+  font-family: var(--font-hud);
+  font-size: 10px;
+  letter-spacing: 0.07em;
+}
+
+.ghostbook-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.ghostbook-file-row {
+  min-width: 0;
+  gap: 9px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
+.ghostbook-file-row > svg {
+  flex: 0 0 auto;
+  color: var(--color-accent);
+}
+
+.ghostbook-file-name {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  color: var(--color-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ghostbook-file-size {
+  flex: 0 0 auto;
+  color: var(--color-text-tertiary);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.ghostbook-job-running,
+.ghostbook-job-queued {
+  color: #d3b3ff;
+}
+
+.ghostbook-job-partial {
+  color: var(--color-accent-amber);
+}
+
+.ghostbook-job-completed {
+  color: var(--color-success);
+}
+
+.ghostbook-job-failed {
+  color: var(--color-error);
+}
+
+.ghostbook-import-button {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 7px;
+  border: 1px solid rgba(194, 166, 255, 0.35);
+  border-radius: 9px;
+  background: linear-gradient(120deg, #7054a0, #564179);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  transition: filter 120ms ease, opacity 120ms ease;
+}
+
+.ghostbook-import-button:hover:not(:disabled) {
+  filter: brightness(1.14);
+}
+
+.ghostbook-import-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.ghostbook-import-button:focus-visible,
+.ghostbook-sample-link:focus-visible,
+.ghostbook-sample-questions-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.ghostbook-spin {
+  animation: ghostbook-spin 900ms linear infinite;
+}
+
+@keyframes ghostbook-spin {
+  to { transform: rotate(360deg); }
+}
+
+.ghostbook-feedback {
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 11px;
+  padding: 10px;
+  border: 1px solid currentColor;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ghostbook-error {
+  color: var(--color-error);
+  background: rgba(255, 142, 155, 0.06);
+}
+
+.ghostbook-success {
+  color: var(--color-success);
+  background: rgba(121, 216, 174, 0.06);
+}
+
+.ghostbook-success svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.ghostbook-privacy-note {
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 16px;
+  padding: 11px;
+  border: 1px solid rgba(243, 184, 107, 0.17);
+  border-radius: 9px;
+  background: rgba(243, 184, 107, 0.05);
+  color: #d7bd99;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.ghostbook-privacy-note svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--color-accent-amber);
+}
+
+.ghostbook-archive-list {
+  margin-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.ghostbook-list-heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0 11px;
+  color: var(--color-text-tertiary);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.ghostbook-empty-archive {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+}
+
+.ghostbook-empty-archive svg {
+  flex: 0 0 auto;
+}
+
+.ghostbook-imported-row {
+  min-height: 36px;
+  border-bottom: 1px solid rgba(192, 174, 255, 0.08);
+}
+
+.ghostbook-sample-downloads {
+  margin-top: 17px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(192, 174, 255, 0.08);
+}
+
+.ghostbook-sample-downloads > p {
+  margin: 5px 0 8px;
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+}
+
+.ghostbook-sample-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+  border-bottom: 1px solid rgba(192, 174, 255, 0.06);
+}
+
+.ghostbook-sample-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0;
+  color: #d5c6fb;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.ghostbook-sample-link:hover,
+.ghostbook-sample-questions-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.ghostbook-sample-questions-link {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.ghostbook-chat-panel {
+  display: flex;
+  min-height: 420px;
+  flex-direction: column;
+}
+
+.ghostbook-chat-heading {
+  min-height: 72px;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(16, 16, 26, 0.68);
+}
+
+.ghostbook-chat-indicator {
+  flex: 0 0 auto;
+  font-size: 9px;
+}
+
+.ghostbook-chat-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+}
+
+.ghostbook-chat-area {
+  min-height: 0;
+  flex: 1;
+}
+
+.ghostbook-evidence {
+  max-height: 250px;
+  flex: 0 0 auto;
+  overflow: auto;
+  padding: 14px 20px;
+  border-top: 1px solid var(--color-border);
+  background: rgba(15, 15, 24, 0.9);
+}
+
+.ghostbook-evidence-heading,
+.ghostbook-evidence-source {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.ghostbook-evidence-heading {
+  justify-content: space-between;
+}
+
+.ghostbook-evidence-heading h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ghostbook-evidence-heading > svg,
+.ghostbook-evidence-source > svg {
+  flex: 0 0 auto;
+  color: var(--color-accent);
+}
+
+.ghostbook-evidence-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.ghostbook-evidence-loading > svg {
+  flex: 0 0 auto;
+  color: var(--color-accent);
+}
+
+.ghostbook-evidence-note,
+.ghostbook-evidence-empty {
+  margin: 8px 0;
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ghostbook-evidence-list {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ghostbook-evidence-item {
+  padding: 10px 11px;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: var(--color-bg-secondary);
+}
+
+.ghostbook-evidence-source {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ghostbook-evidence-source > span:last-child:not(:first-child) {
+  margin-left: auto;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-hud);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.ghostbook-evidence-item p {
+  margin: 7px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.ghostbook-page .prose,
+.ghostbook-page .prose p,
+.ghostbook-page .prose li {
+  color: var(--color-text);
+}
+
+.ghostbook-page textarea,
+.ghostbook-page input:not([type="file"]) {
+  color: var(--color-text);
+}
+
+.ghostbook-page button:focus-visible,
+.ghostbook-page a:focus-visible,
+.ghostbook-page textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .ghostbook-workspace {
+    grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+    padding: 14px;
+  }
+
+  .ghostbook-archive-panel {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ghostbook-page {
+    overflow-y: auto;
+  }
+
+  .ghostbook-header {
+    min-height: 66px;
+    padding: 12px 16px;
+  }
+
+  .ghostbook-status {
+    font-size: 9px;
+  }
+
+  .ghostbook-workspace {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .ghostbook-chat-panel {
+    min-height: 520px;
+  }
+
+  .ghostbook-chat-heading {
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .ghostbook-chat-heading h2 {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ghostbook-spin {
+    animation: none;
+  }
+
+  .ghostbook-dropzone,
+  .ghostbook-import-button {
+    transition: none;
+  }
+}

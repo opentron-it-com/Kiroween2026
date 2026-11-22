@@ -1,0 +1,36 @@
+name: AWS Nitro NSM Panama FFM Build
+
+on:
+  push:
+    paths:
+      - '.github/workflows/aws-nitro-native-build.yml'
+      - 'java/opentron-java/backend/src/main/java/org/opentron/backend/security/confidential/gateway/aws/**'
+      - 'java/opentron-java/backend/src/test/java/org/opentron/backend/security/confidential/gateway/aws/**'
+      - 'java/opentron-java/confidential-worker/**'
+  pull_request:
+    paths:
+      - '.github/workflows/aws-nitro-native-build.yml'
+      - 'java/opentron-java/backend/src/main/java/org/opentron/backend/security/confidential/gateway/aws/**'
+      - 'java/opentron-java/backend/src/test/java/org/opentron/backend/security/confidential/gateway/aws/**'
+      - 'java/opentron-java/confidential-worker/**'
+
+jobs:
+  linux-ffm-build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Test EIF workflow and KMS policy generation
+        run: python -m unittest discover -s deploy/tests -p 'test_aws_nitro_eif_workflow.py' -v
+
+      - name: Run confidential-worker focused tests
+        run: mvn -B -ntp -f java/opentron-java/confidential-worker/pom.xml clean test

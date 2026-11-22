@@ -1,0 +1,36 @@
+-- Store Java Instant values with timezone-aware UTC semantics.
+ALTER TABLE oauth_tokens
+    ALTER COLUMN expires_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE oauth_tokens
+    ALTER COLUMN created_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE pull_jobs
+    ALTER COLUMN created_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE pull_jobs
+    ALTER COLUMN started_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE pull_jobs
+    ALTER COLUMN completed_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE ingest_jobs
+    ALTER COLUMN created_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE ingest_jobs
+    ALTER COLUMN started_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE ingest_jobs
+    ALTER COLUMN completed_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE connector_states
+    ALTER COLUMN last_sync_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE connector_states
+    ALTER COLUMN oldest_item_date TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE connector_states
+    ALTER COLUMN created_at TYPE TIMESTAMP WITH TIME ZONE;
+
+ALTER TABLE connector_states
+    ALTER COLUMN updated_at TYPE TIMESTAMP WITH TIME ZONE;

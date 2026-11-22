@@ -1,0 +1,11 @@
+**
+!java/
+!java/opentron-java/
+!java/opentron-java/**
+!deploy/
+!deploy/models/
+!deploy/models/pii_ner_v1.onnx
+!deploy/models/vocab.txt
+!deploy/models/special_tokens_map.json
+**/target/**
+**/node_modules/**

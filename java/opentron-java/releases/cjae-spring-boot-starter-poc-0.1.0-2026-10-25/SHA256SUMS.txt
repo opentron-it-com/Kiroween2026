@@ -1,0 +1,2 @@
+35e4112c13dbaad62be1ac109dd083b99781cde45acec1c6fce8473d5e243f8e  artifacts/cjae-spring-boot-starter-0.1.0.jar
+96fc2ca4fbbdef35f3b64c9ce9d5bf6f9cd873eb99d78e8c9a3ef4b40fd5527a  presentation/CJAE-Spring-Boot-Starter-PoC.pdf

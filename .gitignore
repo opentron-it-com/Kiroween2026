@@ -1,0 +1,103 @@
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Testing
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+# ...but keep checked-in example/templates (never contain real secrets)
+!.env.example
+!**/.env.example
+/java/opentron-java/cjae_accessKeys.csv
+/java/opentron-java/cjae-nitro-key.pem
+
+# Project
+*.sqlite
+*.db
+*.jsonl
+*.npz
+*.log
+results/
+logs/
+# Anchored to repo root — DO NOT use the unanchored form `traces/`.
+/# hatchling honors .gitignore when building the wheel; an unanchored
+# `traces/` pattern matches src/opentron/traces/ and silently drops
+# the runtime module from the wheel (issue #372).
+/traces/
+coding_task_*
+get-pip.py
+# Junk from mocked-path tests that write to their mock's __repr__ as a path
+MagicMock/
+
+# MkDocs build output
+site/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/src-tauri/sidecar/
+
+# Desktop
+desktop/node_modules/
+desktop/dist/
+src/opentron/server/static/
+
+# Desktop (Tauri)
+frontend/src-tauri/target/
+
+# Worktrees
+.worktrees/
+
+# Rust
+target/
+
+
+# Tauri auto-generated schemas
+**/src-tauri/gen/schemas/
+
+# NFS lock artifacts
+.nfs*
+**/.nfs*
+
+
+# SQLite in-memory artifacts
+:memory:
+
+.opentron/
+learning.db
+**/learning/sessions/
+**/learning/pending_review/
+**/learning/benchmarks/
+**/teacher_traces/
+*.session.json
+
+# Local dev artifacts (hybrid worker logs + cli debug dumps)
+minion_logs/
+*.oj-debug.json
+oj-debug.*.json
+
+deploy/models/pii_ner_v1.onnx
+cjae-worker.tar

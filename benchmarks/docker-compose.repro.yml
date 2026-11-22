@@ -1,0 +1,98 @@
+services:
+  opentron-java:
+    build:
+      context: ..
+      dockerfile: benchmarks/reproducible-java.Dockerfile
+    cpus: 2.0
+    mem_limit: 2g
+    ports:
+      - "18080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: embedded
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:benchmark;DB_CLOSE_DELAY=-1
+      SPRING_DATASOURCE_DRIVERCLASSNAME: org.h2.Driver
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      SPRING_FLYWAY_ENABLED: "false"
+      SERVER_PORT: 8080
+      ENGINE_HOST: http://127.0.0.1:11434
+      MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: health,metrics,prometheus
+      LOGGING_LEVEL_ROOT: WARN
+      LOGGING_LEVEL_ORG_OPENTRON: ERROR
+      LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: WARN
+    networks:
+      - reprobench
+
+  redis:
+    image: redis:7.4.2-alpine3.21
+    cpus: 0.25
+    mem_limit: 384m
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "256mb"]
+    networks:
+      - reprobench
+
+  python-api:
+    build:
+      context: ./python_baseline
+      dockerfile: Dockerfile.reproducible
+    cpus: 0.25
+    mem_limit: 512m
+    ports:
+      - "18081:8000"
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    command: ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4", "--no-access-log"]
+    depends_on:
+      - redis
+    networks:
+      - reprobench
+
+  python-worker-1:
+    build:
+      context: ./python_baseline
+      dockerfile: Dockerfile.reproducible
+    cpus: 0.5
+    mem_limit: 384m
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    command: ["celery", "-A", "app.celery_app", "worker", "-l", "warning", "-c", "10", "--queues", "default"]
+    depends_on:
+      - redis
+    networks:
+      - reprobench
+
+  python-worker-2:
+    build:
+      context: ./python_baseline
+      dockerfile: Dockerfile.reproducible
+    cpus: 0.5
+    mem_limit: 384m
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    command: ["celery", "-A", "app.celery_app", "worker", "-l", "warning", "-c", "10", "--queues", "default"]
+    depends_on:
+      - redis
+    networks:
+      - reprobench
+
+  python-worker-3:
+    build:
+      context: ./python_baseline
+      dockerfile: Dockerfile.reproducible
+    cpus: 0.5
+    mem_limit: 384m
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    command: ["celery", "-A", "app.celery_app", "worker", "-l", "warning", "-c", "10", "--queues", "default"]
+    depends_on:
+      - redis
+    networks:
+      - reprobench
+
+networks:
+  reprobench:

@@ -1,0 +1,24 @@
+[Unit]
+Description=CJAE Nitro Enclave KMS Recipient Decrypt proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ec2-user
+Group=ec2-user
+EnvironmentFile=/etc/cjae/aws-nitro-kms-vsock-proxy.env
+Environment=TMPDIR=/var/tmp
+ExecStart=/usr/bin/python3 /opt/cjae/aws_nitro_kms_vsock_proxy.py
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/tmp
+RestrictAddressFamilies=AF_VSOCK AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target
