@@ -35,8 +35,52 @@ While mainstream AI frameworks rely on heavy Python runtimes (LangChain, CrewAI,
 - [REST API reference](API_REFERENCE.md)
 
 ---
+# Ghostbook — Kiroween 2026 Devpost Write-up
+
+## Submission links and readiness
+
+- **Working app/demo URL:** Available in AWS link from hackathon submission.
+- **Demo video:** https://www.youtube.com/watch?v=sW4fFDWKprM (public YouTube watch page; 14 seconds).
+- **Public source repository:** https://github.com/opentron-it-com/Kiroween2026 (public github repo)
+  Its GitHub license metadata is MIT.
+
+## What it does
+
+Ghostbook revives the personal digital organizer. You import exported notes, journals, and
+records (CSV, PDF, DOCX, Markdown, plain text) into a haunted PDA-inspired workspace. The
+OpenTron backend extracts and indexes them. You then ask the assistant natural-language
+questions, and the workspace shows you both the answer and the specific archive passages that
+match your question — with a clear disclaimer that displayed passages are search matches, not
+a claim the model cited each one.
+
+The demo flow: download the synthetic sample CSV archive from the page, import it, ask
+"What did Mara and I watch at the Lantern Fair?" — the answer comes back and the Evidence
+matches panel shows the exact excerpt from `ghostbook-sample-archive.csv`.
+---
 
 ## 🏗️ Architecture & Core Mechanics
+
+## ⚡ BYOK Hybrid Mode: Frontier Reasoning Without IP Leaks or SaaS Markups
+
+> **Frontier AI reasoning without leaking your IP—or paying SaaS token markups.**
+
+Most AI developer tools force a bad trade-off: send sensitive code and business logic to third-party cloud servers at a steep markup, or settle for small local models that stall on complex engineering tasks. **JVMAI** (powered by the **OpenTron Java 21 runtime**) eliminates that compromise with **BYOK Hybrid Mode**:
+
+- 🔑 **Bring Your Own Keys (Zero Markup, Zero Lock-In):** Plug in your own **Anthropic** and **Google Gemini** API keys directly. Keys are encrypted at rest on your machine—never routed through a middleman proxy.
+- 🛡️ **CJAE Confidential Scrubbing Before Cloud Egress:** Before any complex prompt escalates to a cloud model, the **Confidential AI Engine (CJAE)** scans, redacts sensitive identifiers and secrets, and enforces workspace boundary rules—keeping raw business logic and proprietary alpha on your device.
+- 💸 **Prompt-Cached Cost Savings + Local Offloading (Up to 80–90% Lower Spend):** Routine classification, triage, and straightforward coding run free on preloaded local Ollama models (`Qwen3:4b`, `Qwen2.5-Coder:7b`, `DeepSeek-R1:8b`, `Gemma3:4b`). Only `COMPLEX` and `EXTREME` tasks escalate to frontier cloud models—using **prompt caching** and **bounded single-pass execution** (no runaway agent retry loops).
+
+---
+
+### 🔄 How a Request Flows in BYOK Hybrid Mode
+
+```text
+[Prompt] ──▶ 1. Local Triage (Qwen3:4b @ $0)
+                 ├── SIMPLE ───────────▶ 2. Local Ollama Execution (100% On-Device, $0 Token Cost)
+                 └── COMPLEX / EXTREME ─▶ 3. CJAE Scrubbing & Redaction (Secrets & Identifiers Stripped)
+                                              └──▶ 4. Prompt-Cached Single-Pass Cloud Call (Anthropic / Gemini)
+                                                        └──▶ 5. Local AES-256-GCM Telemetry & Cost Audit Log
+```
 
 Open Tron replaces fragile, unoptimized prototyping scripts with a deterministic, decoupled, and highly concurrent AI agent runtime.
 
