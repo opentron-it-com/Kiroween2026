@@ -2,8 +2,7 @@
 
 ## Submission links and readiness
 
-- **Working app/demo URL:** Not deployed. Ghostbook currently runs locally; do not submit a
-  localhost URL as a public demo.
+- **Working app/demo URL:** Available in AWS link from hackathon submission.
 - **Demo video:** https://www.youtube.com/watch?v=sW4fFDWKprM (public YouTube watch page; 14 seconds).
 - **Public source repository:** https://github.com/opentron-it-com/Kiroween2026 (public github repo)
   Its GitHub license metadata is MIT.
