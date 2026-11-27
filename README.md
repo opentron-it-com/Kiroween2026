@@ -55,11 +55,6 @@ a claim the model cited each one.
 
 ---
 
-The demo flow: download the synthetic sample CSV archive from the page, import it, ask
-"What did Mara and I watch at the Lantern Fair?" — the answer comes back and the Evidence
-matches panel shows the exact excerpt from `ghostbook-sample-archive.csv`.
----
-
 ## 🏗️ Architecture & Core Mechanics
 
 ## ⚡ BYOK Hybrid Mode: Frontier Reasoning Without IP Leaks or SaaS Markups
