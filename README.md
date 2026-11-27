@@ -90,11 +90,3 @@ Detailed performance data, stress tests, and hardware comparisons are available 
 👉 [Read the Open Tron Benchmark Report (PDF)](https://github.com/open-tron-ai/OpenTron/blob/main/benchmarks/OpenTron_Benchmark_Executive_Summary.pdf)
 
 ---
-
-## 📄 License
-
-This repository is source-available.
-
-The code is publicly visible for evaluation and review purposes only. No rights are granted to use, modify, distribute, or commercialize this software without explicit written permission from the author.
-
-© 2026 Ermis & Roxana. All Rights Reserved.
