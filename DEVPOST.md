@@ -2,7 +2,7 @@
 
 ## Submission links and readiness
 
-- **Working app/demo URL:** Available in AWS link from hackathon submission.
+- **Working app/demo URL:** Installer available in AWS: https://opentron-msix.s3.eu-north-1.amazonaws.com/GhostBook-2.0.2.0-x64.msix. Run http://127.0.0.1:5173/ghostbook after installation is completed and backend is connected.
 - **Demo video:** https://www.youtube.com/watch?v=sW4fFDWKprM (public YouTube watch page; 14 seconds).
 - **Public source repository:** https://github.com/opentron-it-com/Kiroween2026 (public github repo)
   Its GitHub license metadata is MIT.
