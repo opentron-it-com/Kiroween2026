@@ -150,7 +150,7 @@ The `.kiro/` directory at the repository root contains the Ghostbook feature spe
 automatically after Kiro edits any Ghostbook TypeScript file.
 
 The `DEVPOST.md` at the repository root is the submission write-up with concrete Kiro usage
-evidence. Review it before submitting.
+evidence. 
 
 
 ---
@@ -158,7 +158,7 @@ evidence. Review it before submitting.
 
 ## Submission links and readiness
 
-- **Working app/demo URL:** Available in AWS link from hackathon submission.
+- **Working app/demo URL:** Installer available in AWS: https://opentron-msix.s3.eu-north-1.amazonaws.com/GhostBook-2.0.2.0-x64.msix. Run http://127.0.0.1:5173/ghostbook after installation is completed and backend is connected.
 - **Demo video:** https://www.youtube.com/watch?v=sW4fFDWKprM (public YouTube watch page; 14 seconds).
 - **Public source repository:** https://github.com/opentron-it-com/Kiroween2026 (public github repo)
   Its GitHub license metadata is MIT.
